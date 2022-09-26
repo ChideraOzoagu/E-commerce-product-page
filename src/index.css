@@ -371,6 +371,11 @@ body {
   border-radius: 0.6rem;
   margin-bottom: 1rem;
   transition: all 0.2s ease-in;
+  box-shadow: 0 9px var(--pale-orange);
+}
+.cart-btn:active {
+  box-shadow: 0 5px orange;
+  transform: translateY(4px);
 }
 .cart-btn svg {
   margin-right: 1rem;
