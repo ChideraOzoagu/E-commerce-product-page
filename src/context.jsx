@@ -95,7 +95,6 @@ const AppProvider = ({ children }) => {
         index,
         setIndex,
         ...state,
-        // ...state[0],
         increase,
         decrease,
         isCartOpen,

@@ -14,9 +14,6 @@ const Header = ({value}) => {
 
   useOnClickOutside(ref, closeSidebar)
 
-  // const deleteItem=()=>{
-  //   removeItem()
-  // }
 
   return (
     <>
