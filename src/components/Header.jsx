@@ -7,15 +7,16 @@ import { useOnClickOutside } from "../custom hook/useOnClickOutside";
 import logo from "../assets/images/logo.svg";
 import avatar from "../assets/images/image-avatar.png";
 
-const Header = () => {
-  const { isSidebarOpen, openSidebar, closeSidebar, isCartOpen, setIsCartOpen,amount, isCartFull, cart, removeItem,value, total } = useGlobalContext();
+const Header = ({value}) => {
+  const { isSidebarOpen, openSidebar, closeSidebar, isCartOpen, setIsCartOpen,amount, isCartFull, cart, removeItem, total } = useGlobalContext();
 
   const ref = useRef()
 
-  useOnClickOutside(ref, closeSidebar )
-  const deleteItem=()=>{
-    removeItem()
-  }
+  useOnClickOutside(ref, closeSidebar)
+
+  // const deleteItem=()=>{
+  //   removeItem()
+  // }
 
   return (
     <>
@@ -58,6 +59,7 @@ const Header = () => {
           <img src={avatar} alt="avatar" className="avatar-img" />
         </div>
       </header>
+     
       <article className="cart-container" >
         <div className={`${isCartOpen? 'show-cart cart-items': 'cart-items'}`}>
          
@@ -69,7 +71,7 @@ const Header = () => {
                 <p>Your cart is empty</p>
               </div> :
              cart.map((cartItem)=>{
-              const {id, title, price, img, value} = cartItem
+              const {id, title, price, img} = cartItem
               return <div className="cart-grid" key={id}>
                 <img src={img} alt={title} />
                 <div>
@@ -80,12 +82,12 @@ const Header = () => {
                     <span className="cart-total">${total}</span>
                   </div>
                 </div>
-                <button className="delete-btn" onClick={deleteItem}>
+                <button className="delete-btn" onClick={()=>removeItem(id)}>
                   <FaTrashAlt/>
                 </button>
                 <button className="checkout" onClick={()=>{
                   setIsCartOpen(false)
-                  deleteItem()
+                  removeItem(id)
                 }
                 
                 }>checkout</button>

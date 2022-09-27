@@ -22,6 +22,7 @@ export const cart = [
     id: 1,
     title: "Autumn Limited Edition Sneakers",
     price: "125.00",
+    value: 0,
     img: product1thumbnail,
   },
 ]

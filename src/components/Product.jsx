@@ -36,18 +36,19 @@ const Product = () => {
         <h4 className="price-slash">$250</h4>
       </div>
       <div className="flex-1">
+        
         <div className="amount">
           <button className="minus" onClick={decrease}>
             <HiMinus />
           </button>
           <span className="value">
             {amount}
-        
           </span>
           <button className="plus" onClick={increase}>
             <HiPlus />
           </button>
         </div>
+        
         <button className="cart-btn" onClick={showCartValue}>
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path

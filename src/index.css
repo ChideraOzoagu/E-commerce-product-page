@@ -59,10 +59,11 @@ body {
 .cart {
   background-color: transparent;
   border: none;
-  /* vertical-align: super; */
+  vertical-align: super;
   margin-right: 1rem;
   position: relative;
   cursor: pointer;
+  outline: none;
 }
 .cart svg {
   fill: #69707d;

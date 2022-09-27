@@ -6,11 +6,12 @@ const initialState = {
   cart: [],
   amount: 0,
   total: 0,
-  price: 125.0,
+  price: 125.00
 };
 
 const reducer = (state, action) => {
   if (action.type === "INCREASE") {
+  
     return { ...state, amount: state.amount + 1 };
   }
   if (action.type === "DECREASE") {
@@ -20,10 +21,9 @@ const reducer = (state, action) => {
     return { ...state, amount: state.amount - 1 };
   }
   if (action.type === "REMOVE_ITEM") {
-    return { ...state, cart: [] };
+    return { ...state, cart: state.cart.filter((cartItem)=> cartItem.id !== action.payload) };
   }
   if (action.type === "ADD_TO_CART") {
-   
     return { ...state, cart: cart, total: state.amount * state.price };
   }
   return state;
@@ -68,11 +68,11 @@ const AppProvider = ({ children }) => {
   const decrease = () => {
     dispatch({ type: "DECREASE" });
   };
-  const removeItem = () => {
-    dispatch({ type: "REMOVE_ITEM" });
+  const removeItem = (id) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
   };
-  const addToCart = () => {
-    dispatch({ type: "ADD_TO_CART" });
+  const addToCart = (id) => {
+    dispatch({ type: "ADD_TO_CART", payload:id});
   };
 
   const showThumbnail = (index) => {
